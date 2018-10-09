@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{spconf,amsmath,graphicx}
+
+\title{3D MULTISTREAM U-NET FOR PROSTATE AND PERIPHERAL ZONE SEGMENTATION}
+
+\name
+  {Olmo Zavala-Romero$^{\star}$, 
+        Radka Stoyanova$^{\star}$, 
+        Adrian L. Breto$^{\star}$, 
+        Nicole Gautney$^{\star}$, 
+        Alan Pollack$^{\star}$}
+\address
+    {$^{\star}$University of Miami Miller School of Medicine, 
+    Department of Radiation Oncology, \\ Miami, Florida, United States}
+    
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A modified version of a well stablished 3D U-net architecture is proposed
+for the automatic segmentation of the prostate and its pheripheral zone. The
+proposed architecture is tested with 430 MRI series from multiple vendors. 
+The robustnes of the proposed architecture is analyzed by cross training
+only with MRI series from one type of MRI magnet 
+The abstract should appear at the top of the left-hand column of text, about
+(100 to 150 words)
+\end{abstract}
+
+\begin{keywords}
+prostate cancer, multiparametric MRI, Deep Learning, U-Net, machine learning
+\end{keywords}
+
+\input{Sections/intro.tex}
+\input{Sections/methodology.tex}
+\input{Sections/results.tex}
+\input{Sections/conclusions.tex}
+
+\bibliographystyle{IEEEbib}
+\bibliography{strings,refs}
+
+\end{document}
