@@ -1,42 +1,39 @@
 \section{Results}
 
+Table \ref{tab:res_prost} has the obtained DSCs for the segmentation of the prostate. 
 \begin{table}
     \centering
-    \begin{tabular}{|l|c|c|c|}
-        \hline
-         & Px-Challenge & GE & GE\& PX \\
+    \begin{tabular}{|l|c|c|}
          \hline
-         Px No DA & X & X & X \\
-         Px With DA & X & X & X \\
+          \textbf{Trained Width} &  GE & Siemens (n=33) \\
          \hline
-         GE No DA & X & X & X \\
-         GE With DA & X & X & X \\
+         GE: wo/w DA & 0.748/0.758 & 0.305/0.034 \\
          \hline
-         Px and GE No DA & X & X & X \\
-         Px and GE With DA & X & X & X \\
+         Siemens: wo/w DA & 0.150/0.310 & 0.898/0.889\\
+         \hline
+         GE \& Siemens: wo/w DA & 0.553/0.739 & 0.904/0.915\\
          \hline
     \end{tabular}
-    \caption{Prostate DSC}
+    \caption{Dice Similarity Coefficients (DSC) between manual and CNN-generated 
+    prostate contours for GE and Siemens}
     \label{tab:res_prost}
 \end{table}
 
 
 \begin{table}
     \centering
-    \begin{tabular}{|l|c|c|c|}
+    \begin{tabular}{|l|c|c|}
         \hline
-         & Px-Challenge & GE & GE\& PX \\
+         \textbf{Trained Width} &  GE & Siemens (n=33) \\
          \hline
-         Px No DA & X & X & X \\
-         Px With DA & X & X & X \\
+         GE: wo/w DA & 0.748/0.758 & 0.305/0.034 \\
          \hline
-         GE No DA & X & X & X \\
-         GE With DA & X & X & X \\
+         Siemens: wo/w DA & 0.150/0.310 & 0.898/0.889\\
          \hline
-         Px and GE No DA & X & X & X \\
-         Px and GE With DA & X & X & X \\
+         GE \& Siemens: wo/w DA & 0.553/0.739 & 0.904/0.915\\
          \hline
     \end{tabular}
-    \caption{PZ DSC}
+    \caption{Dice Similarity Coefficients (DSC) between manual and CNN-generated 
+    PZ contours for GE and Siemens}
     \label{tab:res_pz}
 \end{table}

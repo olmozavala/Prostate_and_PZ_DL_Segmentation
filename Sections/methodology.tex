@@ -67,6 +67,18 @@ The loss function used for the training is the negative Dice similarity coeffici
 where N is the total number of voxels in the image, $p_i$ the voxel values for the 
 prediction of the network, and $t_i$ the true voxel values of the prostate or PZ masks.
 
-The dataset was split into 90\% of the examples for training and 10\% for
-validation. Also, in order to compare the robustness of the model with respect to changes
-in MRI vendor machines, three datasets were created: one with cases from the P
+The dataset was split into 90\% for training and 10\% for
+validation. Also, in order to compare the robustness of the models with respect to changes
+in MRI vendor machines,  a distinct model was trained for the datasets GE (90
+training and 10 validation) \& Siemens (295 training and 33 validation) and 
+an additional model trained with the merged datasets (385 training and 43 validation). 
+
+To analyze how 3D data augmentation can influence the sensitivity of the models
+against different vendor machines, the models were also trained separated when
+using data augmentation or not. The 3D data augmentation tested include flipping the
+images in the sagittal axis,  shifting in any direction up to 10\%, and
+bluring the images using Gaussian blur up to $\sigma = 3$. Each data augmentation
+method is applied with a random chance of $1/3$.
+
+Finally, a total number of 12 models were trained from the combination of 
+three datasets, using or not data agumentation, and segmenting prostate or PZ. 
