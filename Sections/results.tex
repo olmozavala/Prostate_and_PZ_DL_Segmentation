@@ -1,13 +1,17 @@
 \section{Results}
 
-Table \ref{tab:res_prost} has the obtained DSCs for the segmentation of the prostate. 
-\begin{table}
+Table \ref{tab:res_prost} has the obtained DSCs for the segmentation of the prostate
+when the 6 trained models are used for the segmentation of the Ge and Siemens dataset. 
+In the case the model is trained with the same data set, the displayed DSC is the one
+obtained in the validation test. If the model is not trained with the same
+dataset, then the DSC is the average value of the whole dataset. 
+\begin{table}[h]
     \centering
     \begin{tabular}{|l|c|c|}
          \hline
           \textbf{Trained Width} &  GE & Siemens (n=33) \\
          \hline
-         GE: wo/w DA & 0.748/0.758 & 0.305/0.034 \\
+         GE: wo/w DA & 0.748/0.758 & 0.305/0.34 \\
          \hline
          Siemens: wo/w DA & 0.150/0.310 & 0.898/0.889\\
          \hline
@@ -18,7 +22,16 @@ Table \ref{tab:res_prost} has the obtained DSCs for the segmentation of the pros
     prostate contours for GE and Siemens}
     \label{tab:res_prost}
 \end{table}
-
+When the model is trained with examples from one dataset and used to segment
+prostates from scans of the same MRI vendor the DSCs are: 0.753 for GE and 0.893  for Siemens. 
+The results obtained for the Siemens dataset are comparable with 
+other groups REFS.  In the case the model is trained with examples from 
+one dataset and used to segment scans from a diffent MRI vendor, then the
+ average DSCs are low (0.322 and 0.169). This result exhibit how sensible the models
+can be to subtle changes in the training dataset. It also displays the importance 
+of testing how well the models generalize in other MRI vendors. 
+The use of data augmentation improves the generalization of the models in most cases
+but not with a clear tendency, further analysis is required. 
 
 \begin{table}
     \centering

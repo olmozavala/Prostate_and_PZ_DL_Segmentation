@@ -4,12 +4,12 @@ Accurate prostate segmentation on MRI datasets is required for many clinical and
 applications. Furthermore, due to the different imaging properties of the peripheral (PZ) 
 and transition zones (TZ) of the prostate, accurate zonal segmentation is also necessary. 
 The prostate and zonal contours are necessary for computer aided diagnosis (CAD)
-applications for diagnosis, staging, and treatment planning for prostate cancer. In 
-series of applications, the prostate contours are fused with the ultrasound volume for 
-to guide prostate biopsies. Automatic segmentation of the prostate, PZ and TZ on MR 
+applications for staging, diagnosis, and treatment planning for prostate cancer. In 
+a series of applications, prostate contours are fused with ultrasound images to
+guide prostate biopsies. Automatic segmentation of the prostate, PZ and TZ on MR 
 images provides an opportunity to broaden the current scope of research by facilitating 
 studies that include large populations of subjects and/or studies that incorporate 
-serial imaging of the prostate to provide a longitudinal picture of disease 
+serial imaging of the prostate to grant a longitudinal picture of disease 
 progression and response.  
 Prostate MRI image segmentation has been an area of intense research \cite{litjens2014evaluation}. Earlier, the 
 applied approaches varied from model-based \cite{chowdhury2012concurrent,toth2012multifeature},
@@ -18,9 +18,9 @@ applied approaches varied from model-based \cite{chowdhury2012concurrent,toth201
  Our group also evaluated the performance of atlas-based approach for prostate and prostate zones 
 segmentation using data from different MR vendors and acquisition parameters\cite{10_padgett2018towards}. The advent 
 of deep learning techniques, such as convolutional neural networks (CNN) has led to great success 
-in image classifiation\cite{11_krizhevsky2012imagenet,12_simonyan2011immediate}. Recently, 
-a U-net architecture has been proposed\cite{13_ronneberger2015u} for medical imaging 
+in image classifiation \cite{11_krizhevsky2012imagenet,12_simonyan2011immediate}. Recently, 
+the U-Net architecture has been proposed \cite{13_ronneberger2015u} for medical imaging 
 segmentation and has been applied to the prostate\cite{14_meyer2018automatic}.
-Here we present a modification of U-net architecture for segmentation both 
+In this work we present a modification of the U-Net architecture for segmentation of both 
 the prostate and prostate zones. In continuation of our previous work for creating an 
 universal segmentation tool, the network is evaluated for images from different MR vendors.  

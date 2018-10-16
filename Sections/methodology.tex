@@ -5,35 +5,50 @@
 
 \subsection{Preprocessing}
 \label{subsec:prepro}
-The preprocessing of the images include: automatic selection of a region
-of interest, image resampling to a resolution of $0.5 \times 0.5 \times 0.5$ mm, contours interpolation
-using optical flow, bias correction using the N4ITK algorithm \cite{n4itk}, and
-image normalization to an interval of [0,1].
+The proposed preprocessing steps of the images consist of: 
+bias correction using the N4ITK algorithm \cite{n4itk}, 
+image normalization to an interval of [0,1],
+automatic selection of a region of interest (ROI), 
+image resampling to a resolution of $0.5 \times 0.5 \times 0.5$ mm, 
+and contour interpolation using optical flow.
 
-The selection of the region of interested was proposed in \cite{anneke} and it 
+
+The selection of the ROI was proposed in \cite{anneke} and it 
 consists of reducing the size of the three MRI series (axial, sagittal, and coronal)
-by the intersection of its three corresponding rectangular prisms. The resampling
+by the intersection of its three corresponding rectangular prisms. Then resampling
 of the images is performed using linear interpolation with the ITK software \cite{itk}. 
-The interpolation of the contours is performed in two dimensions fore each consecutives slices
-of the contours. First, optical flow is obtained between the two slices using the  
-Farneback method implementation in ITK. Then, the contours are modified following
-the optical flow directions in a linear regression direction. Figure \ref{fig:of1} shows an
+
+Manual contours made by the experts were carried on the original image
+resolutions obtained from the MRI and not on the higher resoulution version; therefore, 
+the necessity for interpolating them. 
+The proposed interpolation is performed in two dimensions for every two consecutives slices
+of the contour. First, optical flow is obtained between the two contours using the  
+Farneback method. Then, the contours are interpolated linearly following
+the obtained directions from the optical flow . Figure \ref{fig:of1} shows an
 example of the resulting interpolated contour using the proposed method. 
 \begin{figure}[h]
     \centering
     \includegraphics[totalheight=.15\textheight]{imgs/methodology/OF_1.png}
     \includegraphics[totalheight=.15\textheight]{imgs/methodology/OF_2.png}
-    \caption{Optical flow..}
+    \caption{Contours provided by experts are interpolated using optical flow and
+    linear interpolation. On the left:
+    original contours with 17 slices. On the right: interpolated contours with 68 slices.}
     \label{fig:of1}
 \end{figure}
 
 \subsection{Proposed architecture}
-The proposed 3D CNN consist of a multistream encoding stage and a decoding stage. Each
-of the mulstistream inputs receive an MRI image series of the ROI with a resolution of
-$168^3$. All convolutional layers use filter size of $3 \times 3 \times 3$ and
-rectified linear unit (ReLu) as the activation function, with the exception
+The proposed CNN consist of a 3D multistream architecture that follows the analysis
+and synthesis path of the 3D U-Net \cite{cciccek20163d}. The input of each stream is
+the postprocessed ROI for one of three MRI scans (saggital, coronal, and axial), 
+with a resolution of $168^3$. During the analysis phase, a combination
+of two convolutional layers and one max pool layer is applied three times. The second 
+convolutional layer in each set doubles the number of channels. 
+In the synthesis phase a similar set of two convolutional layers and
+one deconvolution is applied, followed by batch normalization.
+Figure \ref{fig:nn} shows the proposed model, where 
+all convolutional layers use filter size of $3 \times 3 \times 3$ and
+rectified linear unit (ReLu) as the activation function; with the exception
 of the last layer which uses  $1 \times 1 \times 1$ filter size and Sigmoid function. 
-
 \begin{figure*}[h]
     \centering
     \includegraphics[totalheight=.3\textheight]{imgs/methodology/NN.png}
@@ -41,12 +56,12 @@ of the last layer which uses  $1 \times 1 \times 1$ filter size and Sigmoid func
     \label{fig:nn}
 \end{figure*}
 
-Some of the modifications proposed to the original architecture of Meyer et al. \cite{anneke} 
-(based on teh 3D U-Net MISSREF)
-are the reduced number of filters from 192 to 128 in the \emph{bottom} encoding layer, and
-the addition of batch normalization after every convolutiional layer 
-in the decoding phase. These adjustments reduce the training time on half without
-loss of accuracy. 
+With the proposed architecture the training time is reduced in half, compared
+to the original architecture of Meyer et al. \cite{anneke}. This
+improve in performance is obtained by  reducing the number of filters 
+from 192 to 128 in the last layer of the analysis path, and
+the addition of batch normalization after every convolutional layer 
+in the sythesis path.
 
 \subsection{Training}
 \label{subsec:training}
@@ -70,15 +85,16 @@ prediction of the network, and $t_i$ the true voxel values of the prostate or PZ
 The dataset was split into 90\% for training and 10\% for
 validation. Also, in order to compare the robustness of the models with respect to changes
 in MRI vendor machines,  a distinct model was trained for the datasets GE (90
-training and 10 validation) \& Siemens (295 training and 33 validation) and 
-an additional model trained with the merged datasets (385 training and 43 validation). 
+training and 10 validation), and Siemens (295 training and 33 validation).
+The largest model is trained with both datasets (385 training and 43 validation). 
 
 To analyze how 3D data augmentation can influence the sensitivity of the models
-against different vendor machines, the models were also trained separated when
-using data augmentation or not. The 3D data augmentation tested include flipping the
-images in the sagittal axis,  shifting in any direction up to 10\%, and
+against different vendor machines, additional models were trained 
+incorporating data augmentation. The data augmentation is performed by flipping the
+images in the sagittal axis,  shifting in any direction up to 10\% of the image size, and
 bluring the images using Gaussian blur up to $\sigma = 3$. Each data augmentation
 method is applied with a random chance of $1/3$.
 
-Finally, a total number of 12 models were trained from the combination of 
-three datasets, using or not data agumentation, and segmenting prostate or PZ. 
+A total number of 12 models were trained from the combination of 
+three datasets, using or not data agumentation, and training for the segmentation 
+of the prostate or the PZ. 

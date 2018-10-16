@@ -23,19 +23,21 @@
 \maketitle
 
 \begin{abstract}
-A modified version of a well established 3D U-net architecture is proposed
-for the automatic segmentation of the prostate and its peripheral zone. The
-proposed architecture is tested with 430 MRI series from multiple vendors. 
-The robustness of the proposed architecture is analyzed by cross training
-it with MRI series from selected types of MRI magnets. Additionally, the 
-effects of performing 3D data augmentation on medical imaging is addressed
-by analyzing the performance of the trained network with and without 
-The abstract should appear at the top of the left-hand column of text, about
-(100 to 150 words)
+A modified version of the well established 3D U-net architecture is proposed
+for automatic segmentation of the prostate and its peripheral zone (PZ) using
+multiplanar MRI. The proposed architecture is a multistream convolutional
+neuronal network that uses axial, coronal, and sagittal MRI series as input. 
+428 scans from multiple vendors are used to test the robustness 
+of the proposed architecture against distinct MRI magnets . Additionally, the 
+effect of 3D data augmentation  is evaluated.
+The proposed segmentation scheme achieved good results for prostate and PZ compared to expert
+contoured volumes. Combining images from different MRI vendors on the training of 
+the network is of paramount importance for training a universal model for
+prostate and pheripheral zone segmentation. 
 \end{abstract}
 
 \begin{keywords}
-prostate cancer, multiparametric MRI, Deep Learning, U-Net, machine learning
+Prostate cancer, multiparametric MRI, Deep Learning, U-Net, machine learning
 \end{keywords}
 
 \input{Sections/intro.tex}
