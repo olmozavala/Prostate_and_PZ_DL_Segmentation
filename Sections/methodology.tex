@@ -52,7 +52,8 @@ of the last layer which uses  $1 \times 1 \times 1$ filter size and Sigmoid func
 \begin{figure*}[h]
     \centering
     \includegraphics[totalheight=.3\textheight]{imgs/methodology/NN.png}
-    \caption{Optical flow..}
+    \caption{Multistream 3D convolutional network architecture. The input of the network
+    are $168^3$ volumes from the MRI planes: axial, sagittal, and coronal. }
     \label{fig:nn}
 \end{figure*}
 
@@ -84,9 +85,8 @@ prediction of the network, and $t_i$ the true voxel values of the prostate or PZ
 
 The dataset was split into 90\% for training and 10\% for
 validation. Also, in order to compare the robustness of the models with respect to changes
-in MRI vendor machines,  a distinct model was trained for the datasets GE (90
-training and 10 validation), and Siemens (295 training and 33 validation).
-The largest model is trained with both datasets (385 training and 43 validation). 
+in MRI vendor machines,  a distinct model was trained for each dataset: GE (n=100), 
+Siemens (n=328), combined model (n=428). 
 
 To analyze how 3D data augmentation can influence the sensitivity of the models
 against different vendor machines, additional models were trained 

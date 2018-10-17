@@ -1,7 +1,8 @@
 \documentclass{article}
 \usepackage{spconf,amsmath,graphicx}
 
-\title{3D MULTISTREAM U-NET FOR PROSTATE AND PERIPHERAL ZONE SEGMENTATION}
+\title{Multi-vendor MRI segmentation 
+of prostate an prostate zones using deep learning}
 
 \name
   {Olmo Zavala-Romero$^{\star}$
@@ -23,18 +24,20 @@
 \maketitle
 
 \begin{abstract}
-A modified version of the well established 3D U-net architecture is proposed
+A modified version of the well established 3D U-net architecture is used
 for automatic segmentation of the prostate and its peripheral zone (PZ) using
 multiplanar MRI. The proposed architecture is a multistream convolutional
 neuronal network that uses axial, coronal, and sagittal MRI series as input. 
-428 scans from multiple vendors are used to test the robustness 
-of the proposed architecture against distinct MRI magnets . Additionally, the 
+428 scans from multiple MRI vendors are used to test the robustness 
+of the proposed architecture between distinct MRI magnets. Additionally, the 
 effect of 3D data augmentation  is evaluated.
 The proposed segmentation scheme achieved good results for prostate and PZ compared to expert
 contoured volumes. Combining images from different MRI vendors on the training of 
 the network is of paramount importance for training a universal model for
 prostate and pheripheral zone segmentation. 
 \end{abstract}
+A modified version of the well established 3D U-net architecture is used for automatic segmentation of the prostate and its peripheral zone (PZ) using multiplanar MRI. The proposed architecture is a multistream convolutional neuronal network that uses axial, coronal, and sagittal MRI series as input.  428 scans from multiple MRI vendors are used to test the robustness of the proposed architecture between distinct MRI magnets. Additionally, the effect of 3D data augmentation  is evaluated.  The proposed segmentation scheme achieved good results for prostate and PZ compared to expert contoured volumes. Combining images from different MRI vendors on the training of the network is of paramount importance for training a universal model for prostate and pheripheral zone segmentation. 
+
 
 \begin{keywords}
 Prostate cancer, multiparametric MRI, Deep Learning, U-Net, machine learning
@@ -49,3 +52,4 @@ Prostate cancer, multiparametric MRI, Deep Learning, U-Net, machine learning
 \bibliography{theref.bib}
 
 \end{document}
+
