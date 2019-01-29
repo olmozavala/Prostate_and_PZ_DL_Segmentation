@@ -23,11 +23,12 @@ after being preprocessed with bias correction, normalization, and cropped to a R
 \begin{figure}[h]
     \centering
     \includegraphics[totalheight=.15\textheight]{imgs/Preproc/Before.png}
+    \hspace{10px}
     \includegraphics[totalheight=.15\textheight]{imgs/Preproc/After.png}
     \caption{In order to reduce the variability of the the MRI images from different
-    magentes, they are preprocessed with bias correction, normalization, and cropped to a ROI.
+    magnets, they are pre-processed with bias correction, normalization, and cropped to a ROI.
     In this example, the image on the left is the original data and the image on the right
-    is the post-proccessed one. }
+    is the processed one. }
     \label{fig:roi}
 \end{figure}
 
@@ -44,22 +45,24 @@ example of the resulting interpolated contour using this method.
 \begin{figure}[h]
     \centering
     \includegraphics[totalheight=.15\textheight]{imgs/methodology/OF_1.png}
-    \caption{Contours provided by experts are interpolated using optical flow and
-    linear interpolation. On the left:
-    original contours with 17 slices. On the right: interpolated contours with 68 slices.}
+    \includegraphics[totalheight=.15\textheight]{imgs/methodology/OF_2.png}
+    \caption{Contours provided by experts are made on the
+    original resolution of the MRI and interpolated using optical flow and
+    linear interpolation to the higher resolution ROI. On the left: original contours with 17 slices. On the right: interpolated contours with 68 slices.}
     \label{fig:of1}
 \end{figure}
 
-
-\subsection{Proposed architecture}
+\subsection{3D-CNN architecture}
 The proposed CNN consist of a 3D multistream architecture that follows the analysis
-and synthesis path of the 3D U-Net \cite{cciccek20163d}. The input of each stream is
-the postprocessed ROI for one of three MRI scans (axial, sagittal, and coronal),
+and synthesis path of the 3D U-Net \cite{cciccek20163d}. Our implementation
+follows the one proposed by Anneke et al. in 2018  \cite{anneke}. The input of each stream is
+the post-processed ROI for one of three MRI scans (axial, sagittal, and coronal),
 with a resolution of $168^3$. During the analysis phase, a combination
 of two convolutional layers and one max pool layer is applied three times. The second 
 convolutional layer in each set doubles the number of channels. 
 In the synthesis phase, a similar set of two convolutional layers and
-one deconvolution is applied, followed by batch normalization.
+one deconvolution is applied, followed by batch normalization and Dropout of
+20\% \cite{hinton2012improving}.
 Figure \ref{fig:nn} shows the proposed model, where 
 all convolutional layers use a filter size of $3 \times 3 \times 3$ and
 rectified linear unit (ReLu) as the activation function; with the exception
