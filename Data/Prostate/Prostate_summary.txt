@@ -1,12 +1,12 @@
 AVG:['0.887', '0.855'] STD:['0.046', '0.064']  GE_yes-GE ROI
-AVG:['0.877', '0.846'] STD:['0.070', '0.082']  GE_yes-GE Original
+AVG:['0.888', '0.860'] STD:['0.044', '0.054']  GE_yes-GE Original
 AVG:0.804 STD:0.099  GE_yes-Px_Challenge ROI
-AVG:0.799 STD:0.110  GE_yes-Px_Challenge Original
-AVG:0.261 STD:0.119  P_yes-GE ROI
-AVG:0.276 STD:0.130  P_yes-GE Original
+AVG:0.802 STD:0.106  GE_yes-Px_Challenge Original
+AVG:0.262 STD:0.118  P_yes-GE ROI
+AVG:0.288 STD:0.139  P_yes-GE Original
 AVG:['0.912', '0.892'] STD:['0.026', '0.038']  P_yes-Px_Challenge ROI
-AVG:['0.906', '0.883'] STD:['0.027', '0.047']  P_yes-Px_Challenge Original
-AVG:0.828 STD:0.116  P_and_GE-GE ROI
-AVG:0.824 STD:0.113  P_and_GE-GE Original
-AVG:0.897 STD:0.037  P_and_GE-Px_Challenge ROI
-AVG:0.892 STD:0.038  P_and_GE-Px_Challenge Original
+AVG:['0.906', '0.889'] STD:['0.026', '0.035']  P_yes-Px_Challenge Original
+AVG:0.830 STD:0.112  P_and_GE-GE ROI
+AVG:0.827 STD:0.109  P_and_GE-GE Original
+AVG:0.896 STD:0.037  P_and_GE-Px_Challenge ROI
+AVG:0.892 STD:0.036  P_and_GE-Px_Challenge Original
