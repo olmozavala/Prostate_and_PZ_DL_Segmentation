@@ -1,9 +1,10 @@
 \section{Results}
 
-Table \ref{tab:res_prost} shows the obtained DSCs for the segmentation of the prostate when the six trained models are used for the segmentation of the GE and Siemens dataset.  The displayed DSC is computed from the validation subset when the model is trained on the same dataset, and computed from the whole dataset when the model is trained from a different dataset. 
+Table \ref{tab:res_prost} shows the obtained DSCs for the segmentation of the prostate when the three trained models are used for segmenting the GE and the Siemens dataset. The displayed DSCs are computed from the validation subset when the model is trained on the same dataset, and computed from the whole dataset when the model is trained from a different dataset. 
+
  \begin{table}[h]
-    \label{tab:res_prost}
-    \caption{Dice Similarity Coefficients between manual and CNN-generated prostate contours for GE and Siemens MRI vendors datasets. The trained models are divided in: with (w) data augmentation (DA) and without (wo) DA.}
+    \caption{Prostate segmentation Dice Similarity Coefficients (DSC) obtained for the GE and Siemens MRI vendors datasets, from the
+    tree trained models (GE, Siemens, and Combined). The DSC are obtained for the original MRI resolution, and for the high resolution images.}
     \begin{tabular}{lcc}
          \hline
           \textbf{Prostate Models} & \textbf{GE} & \textbf{Siemens }\\
@@ -21,11 +22,20 @@ Table \ref{tab:res_prost} shows the obtained DSCs for the segmentation of the pr
          Combined ROI/Original & $0.830\pm0.112$/$0.827\pm0.109$ & $\mathbf{0.896\pm0.037}$/$0.892\pm0.036$\\
          \hline
     \end{tabular}
+    \label{tab:res_prost}
 \end{table} 
-When the model is trained with examples from one dataset and used to segment prostates from scans of the same MRI vendor the average DSCs are: 0.753 for GE and 0.893 for Siemens. When the datasets are combined during training, the average DSC are: 0.746 for GE and 0.909 for Siemens.  The results obtained for the Siemens dataset are comparable with current state of the art methods for prostate segmentation. When the model is trained with examples from one MRI vendor and then used to process images from a different vendor, the resulting DSCs are low (0.322 and 0.169).  %This result exhibit 
-The above shows how sensible the model is to subtle changes in the training dataset. It also displays the importance of testing how well deep learning architectures generalize to other MRI vendors.  The use of data augmentation improves the generalization of the models in most cases but not with a clear tendency, further analysis is required.
+When the model is trained with examples from one dataset and used to segment prostates from scans of the same MRI vendor the average DSCs are: $0.855$ for GE and $0.892$ for Siemens. When the datasets are combined during training, the average DSC are: $0.830$ for GE and $0.896$ for Siemens.  The results obtained for the Siemens dataset are comparable with other methods for prostate segmentation. When the model is trained with examples from one MRI vendor and then used to process images from a different vendor, the resulting DSCs are low ($0.262$ and $0.804$).  This result exhibit how sensible the model is to subtle changes in the training dataset. It also displays the importance of testing how well deep learning architectures generalize to other MRI vendors.  
 
-Table \ref{tab:res_pz} shows the obtained DSCs for the segmentation of the PZ the six trained models.  The best DSCs (0.653 and 0.756) for segmenting the PZ of the prostate are obtained when the model is trained using the combined dataset.  
+% Show some images
+Figure \ref{fig:resseg} shows the middle axial slice for the lowest, median, and highest DSC obtained for prostate segmentations on the Siemens and GE dataset. In general, the DSC increases with respect of the volume size of the prostate, and images from the Siemens dataset have better resolution which improves the performance of the network. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[totalheight=.4\textheight]{figures/Figure4.eps}
+    \label{fig:resseg}
+    \caption{Prostate segmentations of Siemens (up) and GE (down) MRI vendors respectively. }
+\end{figure} 
+
+Table \ref{tab:res_pz} shows the obtained DSCs for the segmentation of the PZ the three trained models.  The best DSCs of $0.797$ and $0.813$ for segmenting the PZ of the prostate are obtained when the model is trained using the combined dataset.  
  \begin{table}[h]
     \label{tab:res_pz}
     \caption{Dice Similarity Coefficients (DSC) between manual and CNN-generated PZ contours for GE and Siemens.The trained models are divided in: with (w) data augmentation (DA) and without (wo) DA.}
@@ -45,46 +55,54 @@ Table \ref{tab:res_pz} shows the obtained DSCs for the segmentation of the PZ th
     \end{tabular}
 \end{table}
 
+% COMPARE WITH RESULTS FROM OTHER PLACES OF PZ AND SAY WE ARE THE BEST
 The average DSCs of all the PZ models are lower than the coefficients for segmenting the prostate, which implies that PZ segmentation is a more challenging task.
-Figure \ref{fig:resseg} shows one example of a prosate segmentation on the Siemens MRI vendor and a PZ segmentation on the GE MRI vendor. Both examples are from the middle layer of the prostate, and their corresponding DSC are 0.903 and 0.737.
- \begin{figure}[h]
-    \centering
-    \includegraphics[totalheight=.2\textheight]{figures/results/Prostate_Px_Challenge__P_yes_ROI_MIN_Case-0128.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/Prostate_Px_Challenge__P_yes_ROI_MEAN_Case-0176.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/Prostate_Px_Challenge__P_yes_ROI_MAX_Case-0337.png}
-    \vspace{10mm}
-    \includegraphics[totalheight=.2\textheight]{figures/results/Prostate_Px_Challenge__P_yes_Original_MIN_Case-0128.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/Prostate_Px_Challenge__P_yes_Original_MEAN_Case-0085.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/Prostate_Px_Challenge__P_yes_Original_MAX_Case-0016.png}
-    \vspace{10mm}
-    \includegraphics[totalheight=.2\textheight]{figures/results/Prostate_GE__GE_yes_ROI_MIN_Case-0518.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/Prostate_GE__GE_yes_ROI_MEAN_Case-0544.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/Prostate_GE__GE_yes_ROI_MAX_Case-0537.png}
-    \vspace{10mm}
-    \includegraphics[totalheight=.2\textheight]{figures/results/Prostate_GE__GE_yes_Original_MIN_Case-0518.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/Prostate_GE__GE_yes_Original_MEAN_Case-0544.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/Prostate_GE__GE_yes_Original_MAX_Case-0537.png}
-    \label{fig:resseg}
-    \caption{Prostate segmentations of Siemens (up) and GE (down) MRI vendors respectively. }
-\end{figure} 
 
  \begin{figure}[h]
     \centering
-    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_Px_Challenge__P_yes_ROI_MIN_Case-0325.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_Px_Challenge__P_yes_ROI_MEAN_Case-0319.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_Px_Challenge__P_yes_ROI_MAX_Case-0026.png}
-    \vspace{10mm}
-    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_Px_Challenge__P_yes_Original_MIN_Case-0325.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_Px_Challenge__P_yes_Original_MEAN_Case-0319.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_Px_Challenge__P_yes_Original_MAX_Case-0010.png}
-    \vspace{10mm}
-    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_GE__GE_yes_ROI_MIN_Case-0481.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_GE__GE_yes_ROI_MEAN_Case-0462.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_GE__GE_yes_ROI_MAX_Case-0508.png}
-    \vspace{10mm}
-    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_GE__GE_yes_Original_MIN_Case-0481.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_GE__GE_yes_Original_MEAN_Case-0462.png}
-    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_GE__GE_yes_Original_MAX_Case-0508.png}
+    \includegraphics[totalheight=.4\textheight]{figures/Figure5.eps}
     \label{fig:ressegpz}
     \caption{PZ segmentations of Siemens (up) and GE (down) MRI vendors respectively. }
 \end{figure} 
+
+% \begin{figure}[h]
+%    \centering
+%    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_Px_Challenge__P_yes_ROI_MIN_Case-0325.png}
+%    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_Px_Challenge__P_yes_ROI_MEAN_Case-0319.png}
+%    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_Px_Challenge__P_yes_ROI_MAX_Case-0026.png}
+%    \vspace{10mm}
+%    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_Px_Challenge__P_yes_Original_MIN_Case-0325.png}
+%    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_Px_Challenge__P_yes_Original_MEAN_Case-0319.png}
+%    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_Px_Challenge__P_yes_Original_MAX_Case-0010.png}
+%    \vspace{10mm}
+%    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_GE__GE_yes_ROI_MIN_Case-0481.png}
+%    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_GE__GE_yes_ROI_MEAN_Case-0462.png}
+%    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_GE__GE_yes_ROI_MAX_Case-0508.png}
+%    \vspace{10mm}
+%    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_GE__GE_yes_Original_MIN_Case-0481.png}
+%    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_GE__GE_yes_Original_MEAN_Case-0462.png}
+%    \includegraphics[totalheight=.2\textheight]{figures/results/PZ_GE__GE_yes_Original_MAX_Case-0508.png}
+%    \label{fig:ressegpz}
+%   \caption{PZ segmentations of Siemens (up) and GE (down) MRI vendors respectively. }
+%\end{figure} 
+
+%\begin{figure}[h]
+    %\centering
+    %\includegraphics[totalheight=.2\textheight]{figures/results/Prostate_Px_Challenge__P_yes_ROI_MIN_Case-0128.png}
+    %\includegraphics[totalheight=.2\textheight]{figures/results/Prostate_Px_Challenge__P_yes_ROI_MEAN_Case-0176.png}
+    %\includegraphics[totalheight=.2\textheight]{figures/results/Prostate_Px_Challenge__P_yes_ROI_MAX_Case-0337.png}
+    %\vspace{10mm}
+    %\includegraphics[totalheight=.2\textheight]{figures/results/Prostate_Px_Challenge__P_yes_Original_MIN_Case-0128.png}
+    %\includegraphics[totalheight=.2\textheight]{figures/results/Prostate_Px_Challenge__P_yes_Original_MEAN_Case-0085.png}
+    %\includegraphics[totalheight=.2\textheight]{figures/results/Prostate_Px_Challenge__P_yes_Original_MAX_Case-0016.png}
+    %\vspace{10mm}
+    %\includegraphics[totalheight=.2\textheight]{figures/results/Prostate_GE__GE_yes_ROI_MIN_Case-0518.png}
+    %\includegraphics[totalheight=.2\textheight]{figures/results/Prostate_GE__GE_yes_ROI_MEAN_Case-0544.png}
+    %\includegraphics[totalheight=.2\textheight]{figures/results/Prostate_GE__GE_yes_ROI_MAX_Case-0537.png}
+    %\vspace{10mm}
+    %\includegraphics[totalheight=.2\textheight]{figures/results/Prostate_GE__GE_yes_Original_MIN_Case-0518.png}
+    %\includegraphics[totalheight=.2\textheight]{figures/results/Prostate_GE__GE_yes_Original_MEAN_Case-0544.png}
+    %\includegraphics[totalheight=.2\textheight]{figures/results/Prostate_GE__GE_yes_Original_MAX_Case-0537.png}
+    %\label{fig:resseg}
+    %\caption{Prostate segmentations of Siemens (up) and GE (down) MRI vendors respectively. }
+%\end{figure} 
