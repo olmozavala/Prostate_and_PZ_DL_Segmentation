@@ -27,11 +27,11 @@ Table \ref{tab:res_prost} shows the obtained DSCs for the segmentation of the pr
 When the model is trained with examples from one dataset and used to segment prostates from scans of the same MRI vendor the average DSCs are: $0.855$ for GE and $0.892$ for Siemens. When the datasets are combined during training, the average DSC are: $0.830$ for GE and $0.896$ for Siemens.  The results obtained for the Siemens dataset are comparable with other methods for prostate segmentation. When the model is trained with examples from one MRI vendor and then used to process images from a different vendor, the resulting DSCs are low ($0.262$ and $0.804$).  This result exhibit how sensible the model is to subtle changes in the training dataset. It also displays the importance of testing how well deep learning architectures generalize to other MRI vendors.  
 
 % Show some images
-Figure \ref{fig:resseg} shows the middle axial slice for the lowest, median, and highest DSC obtained for prostate segmentations on the Siemens and GE dataset. In general, the DSC increases with respect of the volume size of the prostate, and images from the Siemens dataset have better resolution than GE, which may be reason of why the DSC are better in this dataset. 
+Figure \ref{fig:resseg} shows the middle axial slice for the lowest, median, and highest DSC obtained for prostate segmentation on the Siemens and GE dataset. In general, the DSC increases with respect of the volume size of the prostate, and images from the Siemens dataset have better resolution than GE, which may be reason of why the DSC are better in this dataset. 
 \begin{figure}[h]
     \centering
     \includegraphics[totalheight=.4\textheight]{figures/Figure4.eps}
-    \caption{Prostate segmentations for the cases with the lowest, middle, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentations are obtained with the \emph{Combined} network model.  }
+    \caption{Prostate segmentation for the cases with the lowest, middle, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model.  }
     \label{fig:resseg}
 \end{figure} 
 
@@ -59,7 +59,7 @@ The average DSCs of all the PZ models are lower than the coefficients for segmen
 \begin{figure}[h]
     \centering
     \includegraphics[totalheight=.4\textheight]{figures/Figure5.eps}
-    \caption{Peripheral zone segmentations for the cases with the lowest, middle, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentations are obtained with the \emph{Combined} network model.  }
+    \caption{Peripheral zone segmentation for the cases with the lowest, middle, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model.  }
     \label{fig:ressegpz}
 \end{figure} 
 

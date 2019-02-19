@@ -12,7 +12,7 @@ The method for selecting the ROI was originally proposed in \cite{anneke}. It co
 \begin{figure}[h]
     \centering
     \includegraphics[totalheight=.25\textheight]{figures/Figure1.eps}
-    \caption{The MRIs are pre-processed with bias correction, normalization, resampling, and cropped to a ROI to reduce the variability of sizes and intensities between magnets. In this example, \textbf{a)} is the original image and \textbf{b)} is the image after being processed.} 
+    \caption{The MRIs are preprocessed with bias correction, normalization, resampling, and cropped to a ROI to reduce the variability of sizes and intensities between magnets. In this example, \textbf{a)} is the original image and \textbf{b)} is the image after being processed.} 
     \label{fig_1}
 \end{figure}
 
@@ -57,5 +57,5 @@ In order to compare the robustness of the models with respect to changes in MRI 
 A total number of 6 models were trained from the combination of three datasets, and training for the segmentation of the prostate or the PZ. 
 
 \subsection{Postprocessing}
-The CNN outputs a 3D volume of the same size of the ROI, in our case $168^3$. From this cube, a binary mask is obtained by thresholding it with a value of 0.5. After that, we select the largest connected volume and remove all others. Finally, we compute the 3D DSC for the contour of interest in the resampled resultion and in the orginal MRI resultion. Additionally, the predition of the PZ contour is intersected with the prostate, restricting it to the prostate volume.
+The CNN outputs a 3D volume of the same size of the ROI, in our case $168^3$. From this cube, a binary mask is obtained by thresholding it with a value of 0.5. After that, we select the largest connected volume and remove all others. Finally, we compute the 3D DSC for the contour of interest in the resampled resolution and in the original MRI resolution. Additionally, the prediction of the PZ contour is intersected with the prostate, restricting it to the prostate volume.
 
