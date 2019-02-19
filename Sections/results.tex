@@ -27,12 +27,12 @@ Table \ref{tab:res_prost} shows the obtained DSCs for the segmentation of the pr
 When the model is trained with examples from one dataset and used to segment prostates from scans of the same MRI vendor the average DSCs are: $0.855$ for GE and $0.892$ for Siemens. When the datasets are combined during training, the average DSC are: $0.830$ for GE and $0.896$ for Siemens.  The results obtained for the Siemens dataset are comparable with other methods for prostate segmentation. When the model is trained with examples from one MRI vendor and then used to process images from a different vendor, the resulting DSCs are low ($0.262$ and $0.804$).  This result exhibit how sensible the model is to subtle changes in the training dataset. It also displays the importance of testing how well deep learning architectures generalize to other MRI vendors.  
 
 % Show some images
-Figure \ref{fig:resseg} shows the middle axial slice for the lowest, median, and highest DSC obtained for prostate segmentations on the Siemens and GE dataset. In general, the DSC increases with respect of the volume size of the prostate, and images from the Siemens dataset have better resolution which improves the performance of the network. 
+Figure \ref{fig:resseg} shows the middle axial slice for the lowest, median, and highest DSC obtained for prostate segmentations on the Siemens and GE dataset. In general, the DSC increases with respect of the volume size of the prostate, and images from the Siemens dataset have better resolution than GE, which may be reason of why the DSC are better in this dataset. 
 \begin{figure}[h]
     \centering
     \includegraphics[totalheight=.4\textheight]{figures/Figure4.eps}
+    \caption{Prostate segmentations for the cases with the lowest, middle, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentations are obtained with the \emph{Combined} network model.  }
     \label{fig:resseg}
-    \caption{Prostate segmentations of Siemens (up) and GE (down) MRI vendors respectively. }
 \end{figure} 
 
 Table \ref{tab:res_pz} shows the obtained DSCs for the segmentation of the PZ the three trained models.  The best DSCs of $0.797$ and $0.813$ for segmenting the PZ of the prostate are obtained when the model is trained using the combined dataset.  
@@ -55,15 +55,16 @@ Table \ref{tab:res_pz} shows the obtained DSCs for the segmentation of the PZ th
     \end{tabular}
 \end{table}
 
-% COMPARE WITH RESULTS FROM OTHER PLACES OF PZ AND SAY WE ARE THE BEST
-The average DSCs of all the PZ models are lower than the coefficients for segmenting the prostate, which implies that PZ segmentation is a more challenging task.
-
- \begin{figure}[h]
+The average DSCs of all the PZ models are lower than the coefficients for segmenting the prostate, which implies that PZ segmentation is a more challenging task. The obtained DSC for segmenting the PZ with the \emph{Combined} model (0.788 and 0.811) are better than what we found in the literature for similar databases (0.60, 0.68, 0.62, 0.75) \cite{mooij_automatic_2018,toth_simultaneous_2013, chilali_gland_2016, hutchison_pattern_2012}. Figure \ref{fig:ressegpz} shows the middle axial slice for the lowest, median, and highest DSC obtained for the segmentation of the PZ on the Siemens and GE dataset. 
+\begin{figure}[h]
     \centering
     \includegraphics[totalheight=.4\textheight]{figures/Figure5.eps}
+    \caption{Peripheral zone segmentations for the cases with the lowest, middle, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentations are obtained with the \emph{Combined} network model.  }
     \label{fig:ressegpz}
-    \caption{PZ segmentations of Siemens (up) and GE (down) MRI vendors respectively. }
 \end{figure} 
+
+% COMPARE WITH RESULTS FROM OTHER PLACES OF PZ AND SAY WE ARE THE BEST
+
 
 % \begin{figure}[h]
 %    \centering

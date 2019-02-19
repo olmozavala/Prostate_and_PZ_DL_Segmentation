@@ -55,3 +55,7 @@ where N is the total number of voxels in the image, $p_i$ the voxel values for t
 
 In order to compare the robustness of the models with respect to changes in MRI vendor machines,  a distinct model was trained for each dataset: GE (n=220), Siemens (n=330), combined model (n=550). Each dataset was split into 90\% for training and 10\% for validation. Data augmentation was performed on the fly by flipping the images in the sagittal axis and blurring them using 3D Gaussian blur up to $\sigma = 3$. Each data augmentation method is applied with a random chance of $1/2$.  
 A total number of 6 models were trained from the combination of three datasets, and training for the segmentation of the prostate or the PZ. 
+
+\subsection{Postprocessing}
+The CNN outputs a 3D volume of the same size of the ROI, in our case $168^3$. From this cube, a binary mask is obtained by thresholding it with a value of 0.5. After that, we select the largest connected volume and remove all others. Finally, we compute the 3D DSC for the contour of interest in the resampled resultion and in the orginal MRI resultion. Additionally, the predition of the PZ contour is intersected with the prostate, restricting it to the prostate volume.
+
