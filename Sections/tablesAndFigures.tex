@@ -1,8 +1,8 @@
 \newpage
-% Tables
-\begin{table}[h]
-    \caption{Dice Similarity Coefficients between manual and CNN-generated prostate contours for GE and Siemens MRI vendors datasets. The trained models are divided in: with (w) data augmentation (DA) and without (wo) DA.}
-    \label{tab:res_prost}
+\textbf{Tables}
+ \begin{table}[h]
+    \caption{Prostate segmentation Dice Similarity Coefficients (DSC) obtained for the GE and Siemens MRI vendors datasets, from the
+    tree trained models (GE, Siemens, and Combined). The DSC are obtained for the original MRI resolution, and for the high resolution images.}
     \begin{tabular}{lcc}
          \hline
           \textbf{Prostate Models} & \textbf{GE} & \textbf{Siemens }\\
@@ -20,12 +20,13 @@
          Combined ROI/Original & $0.830\pm0.112$/$0.827\pm0.109$ & $\mathbf{0.896\pm0.037}$/$0.892\pm0.036$\\
          \hline
     \end{tabular}
-\end{table}
+    \label{tab:res_prost}
+\end{table} 
 
-%\newpage
+\newpage
 \begin{table}[h]
-    \caption{Dice Similarity Coefficients (DSC) between manual and CNN-generated PZ contours for GE and Siemens.The trained models are divided in: with (w) data augmentation (DA) and without (wo) DA.}
     \label{tab:res_pz}
+    \caption{Dice Similarity Coefficients (DSC) between manual and CNN-generated PZ contours for GE and Siemens.The trained models are divided in: with (w) data augmentation (DA) and without (wo) DA.}
     \begin{tabular}{lcc}
          \hline
           \textbf{PZ Models} & \textbf{GE Dataset} & \textbf{Siemens Dataset}\\
@@ -42,70 +43,39 @@
     \end{tabular}
 \end{table}
 
-%\newpage
+\newpage
 \textbf{Figure legends:}
-% Figures
 \begin{figure}[h]
     \centering
-    \includegraphics[totalheight=.15\textheight]{imgs/Preproc/Before.png}
-    \hspace{10px}
-    \includegraphics[totalheight=.15\textheight]{imgs/Preproc/After.png}
-    \caption{In order to reduce the variability of the the MRI images from different magnets, they are pre-processed with bias correction, normalization, and cropped to a ROI.  In this example, the image on the left is the original data and the image on the right is the processed one. } \label{fig:roi}
+    \includegraphics[totalheight=.25\textheight]{figures/Figure1.eps}
+    \caption{The MRIs are preprocessed with bias correction, normalization, resampling, and cropped to a ROI to reduce the variability of sizes and intensities between magnets. In this example, \textbf{a)} is the original image and \textbf{b)} is the image after being processed.} 
+    \label{fig_1}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[totalheight=.15\textheight]{imgs/methodology/OF_1.png}
-    \includegraphics[totalheight=.15\textheight]{imgs/methodology/OF_2.png}
-    \caption{Contours provided by experts are made on the original resolution of the MRI and interpolated using optical flow and linear interpolation to the higher resolution ROI. On the left: original contours with 17 slices. On the right: interpolated contours with 68 slices.}
-    \label{fig:of1}
+    \includegraphics[totalheight=.21\textheight]{figures/Figure2.eps}
+    \caption{Example of the proposed algorithm to increase the resolution of prostate and PZ contours. In \textbf{a)}, an example of the optical flow obtained between two prostate contours from adjacent horizontal planes. In \textbf{b)} on the left, original contours with 17 slices. On the right, interpolated contours with 68 slices.}
+    \label{fig:fig_2}
 \end{figure}
 
 \begin{figure*}[h]
     \centering
-    \includegraphics[totalheight=.275\textheight]{imgs/methodology/NN.png}
-    \caption{Multistream 3D convolutional network architecture. The input of the network are $168^3$ volumes from the MRI planes: axial, sagittal, and coronal. }
-    \label{fig:nn}
+    \includegraphics[totalheight=.282\textheight]{figures/Figure3.eps}
+    \caption{Multistream 3D convolutional network architecture. The input of the network are three $168^3$ volumes from the MRI planes: axial, sagittal, and coronal. }
+    \label{fig:fig_3}
 \end{figure*}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[totalheight=.2\textheight]{imgs/results/Prostate_Px_Challenge__P_yes_ROI_MIN_Case-0128.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/Prostate_Px_Challenge__P_yes_ROI_MEAN_Case-0176.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/Prostate_Px_Challenge__P_yes_ROI_MAX_Case-0337.png}
-    \vspace{10mm}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/Prostate_Px_Challenge__P_yes_Original_MIN_Case-0128.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/Prostate_Px_Challenge__P_yes_Original_MEAN_Case-0085.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/Prostate_Px_Challenge__P_yes_Original_MAX_Case-0016.png}
-    \vspace{10mm}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/Prostate_GE__GE_yes_ROI_MIN_Case-0518.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/Prostate_GE__GE_yes_ROI_MEAN_Case-0544.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/Prostate_GE__GE_yes_ROI_MAX_Case-0537.png}
-    \vspace{10mm}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/Prostate_GE__GE_yes_Original_MIN_Case-0518.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/Prostate_GE__GE_yes_Original_MEAN_Case-0544.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/Prostate_GE__GE_yes_Original_MAX_Case-0537.png}
-    \caption{Prostate segmentations of Siemens (up) and GE (down) MRI vendors respectively. }
+    \includegraphics[totalheight=.4\textheight]{figures/Figure4.eps}
+    \caption{Prostate segmentation for the cases with the lowest, middle, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model.  }
     \label{fig:resseg}
-\end{figure}
+\end{figure} 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[totalheight=.2\textheight]{imgs/results/PZ_Px_Challenge__P_yes_ROI_MIN_Case-0325.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/PZ_Px_Challenge__P_yes_ROI_MEAN_Case-0319.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/PZ_Px_Challenge__P_yes_ROI_MAX_Case-0026.png}
-    \vspace{10mm}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/PZ_Px_Challenge__P_yes_Original_MIN_Case-0325.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/PZ_Px_Challenge__P_yes_Original_MEAN_Case-0319.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/PZ_Px_Challenge__P_yes_Original_MAX_Case-0010.png}
-    \vspace{10mm}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/PZ_GE__GE_yes_ROI_MIN_Case-0481.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/PZ_GE__GE_yes_ROI_MEAN_Case-0462.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/PZ_GE__GE_yes_ROI_MAX_Case-0508.png}
-    \vspace{10mm}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/PZ_GE__GE_yes_Original_MIN_Case-0481.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/PZ_GE__GE_yes_Original_MEAN_Case-0462.png}
-    \includegraphics[totalheight=.2\textheight]{imgs/results/PZ_GE__GE_yes_Original_MAX_Case-0508.png}
-    \caption{PZ segmentations of Siemens (up) and GE (down) MRI vendors respectively. }
+    \includegraphics[totalheight=.4\textheight]{figures/Figure5.eps}
+    \caption{Peripheral zone segmentation for the cases with the lowest, middle, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model.  }
     \label{fig:ressegpz}
-\end{figure}
+\end{figure} 
