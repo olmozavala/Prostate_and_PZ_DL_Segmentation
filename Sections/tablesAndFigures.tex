@@ -1,6 +1,6 @@
 \newpage
 \textbf{Tables}
- \begin{table}[h]
+ \begin{table}[ht]
     \caption{Prostate segmentation Dice Similarity Coefficients (DSC) obtained for the GE and Siemens MRI vendors datasets, from the
     tree trained models (GE, Siemens, and Combined). The DSC are obtained for the original MRI resolution, and for the high resolution images.}
     \begin{tabular}{lcc}
@@ -24,8 +24,7 @@
 \end{table} 
 
 \newpage
-\begin{table}[h]
-    \label{tab:res_pz}
+\begin{table}[ht]
     \caption{Dice Similarity Coefficients (DSC) between manual and CNN-generated PZ contours for GE and Siemens.The trained models are divided in: with (w) data augmentation (DA) and without (wo) DA.}
     \begin{tabular}{lcc}
          \hline
@@ -41,39 +40,40 @@
          %Combined & $0.75\pm0.10$ & $0.78\pm0.09$\\
          \hline
     \end{tabular}
+    \label{tab:res_pz}
 \end{table}
 
 \newpage
 \textbf{Figure legends:}
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[totalheight=.25\textheight]{figures/Figure1.eps}
     \caption{The MRIs are preprocessed with bias correction, normalization, resampling, and cropped to a ROI to reduce the variability of sizes and intensities between magnets. In this example, \textbf{a)} is the original image and \textbf{b)} is the image after being processed.} 
     \label{fig_1}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[totalheight=.21\textheight]{figures/Figure2.eps}
     \caption{Example of the proposed algorithm to increase the resolution of prostate and PZ contours. In \textbf{a)}, an example of the optical flow obtained between two prostate contours from adjacent horizontal planes. In \textbf{b)} on the left, original contours with 17 slices. On the right, interpolated contours with 68 slices.}
     \label{fig:fig_2}
 \end{figure}
 
-\begin{figure*}[h]
+\begin{figure*}[ht]
     \centering
     \includegraphics[totalheight=.282\textheight]{figures/Figure3.eps}
     \caption{Multistream 3D convolutional network architecture. The input of the network are three $168^3$ volumes from the MRI planes: axial, sagittal, and coronal. }
     \label{fig:fig_3}
 \end{figure*}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[totalheight=.4\textheight]{figures/Figure4.eps}
     \caption{Prostate segmentation for the cases with the lowest, middle, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model.  }
     \label{fig:resseg}
 \end{figure} 
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[totalheight=.4\textheight]{figures/Figure5.eps}
     \caption{Peripheral zone segmentation for the cases with the lowest, middle, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model.  }
