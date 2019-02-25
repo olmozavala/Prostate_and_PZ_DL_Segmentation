@@ -1,17 +1,16 @@
 \newpage
 \textbf{Tables}
  \begin{table}[ht]
-    \caption{Prostate segmentation Dice Similarity Coefficients (DSC) obtained for the GE and Siemens MRI vendors datasets, from the
-    tree trained models (GE, Siemens, and Combined). The DSC are obtained for the original MRI resolution, and for the high resolution images.}
+    \caption{Dice Similarity Coefficients (DSC) (mean \pm SD) for prostate, segmented with each of the three trained models (GE, Siemens, and Combined). The results are presented for data from GE and Siemens MRI vendors and the DSCs are calculated on the interpolated (0.5 x 0.5 x 0.5 mm) and original MRI resolution.}
     \begin{tabular}{lcc}
          \hline
-          \textbf{Prostate Models} & \textbf{GE} & \textbf{Siemens }\\
+          \textbf{Prostate Models} & \textbf{GE (Interpolated/Original Resolution)} & \textbf{Siemens (Interpolated/Original Resolution)}\\
          \hline
-         GE ROI/Original & $0.855\pm0.064$/$\mathbf{0.860\pm0.054}$ & $0.804\pm0.099$/$0.802\pm0.106$ \\
+         GE & $0.855\pm0.064$/$\mathbf{0.860\pm0.054}$ & $0.804\pm0.099$/$0.802\pm0.106$ \\
          \hline
-         Siemens ROI/Original & $0.262\pm0.118$/$0.288\pm0.139$ & $0.892\pm0.038$/$0.889\pm0.035$ \\
+         Siemens & $0.262\pm0.118$/$0.288\pm0.139$ & $0.892\pm0.038$/$0.889\pm0.035$ \\
          \hline
-         Combined ROI/Original & $0.830\pm0.112$/$0.827\pm0.109$ & $\mathbf{0.896\pm0.037}$/$0.892\pm0.036$\\
+         Combined & $0.830\pm0.112$/$0.827\pm0.109$ & $\mathbf{0.896\pm0.037}$/$0.892\pm0.036$\\
          \hline
     \end{tabular}
     \label{tab:res_prost}
