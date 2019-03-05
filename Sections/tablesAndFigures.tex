@@ -1,7 +1,40 @@
 \newpage
 \textbf{Tables}
- \begin{table}[ht]
-    \caption{Dice Similarity Coefficients (DSC) (mean \pm SD) for prostate, segmented with each of the three trained models (GE, Siemens, and Combined). The results are presented for data from GE and Siemens MRI vendors and the DSCs are calculated on the interpolated (0.5 x 0.5 x 0.5 mm) and original MRI resolution.}
+\begin{table}[ht]
+    \caption{MRI acquisition parameters. The GE dataset was acquired in two modalities: large field of view (LFOV) and small field of view (SFOV). The Siemens dataset, was only acquired in the SFOV modality.}
+    \begin{tabular}{lcccccc}
+         \hline
+          \textbf{Magnet} & \textbf{Plane} & \textbf{FOV} & \textbf{ET Min - Max} & \textbf{RT Min - Max} & \textbf{Matrix} & \textbf{Voxel size (mm)} \\
+          GE & Axial & LFOV (n=100) & $81.31 - 105.50$ & $4806 - 10998$ & $256 \times 256 \times 72$ & $1.25 \times 1.25 \times 2.5$ \\
+          GE & Axial & SFOV (n=120) & $80.88 - 93.48$ & $3700 -7078$ &
+                \shortstack{ $256 \times 256 \times 27$ to\\ $512 \times 512 \times 37$} & 
+                \shortstack{ $0.3906 \times 0.3906 \times 3$ to\\ $0.7813 \times 0.7813 \times 3$} \\
+          GE & Coronal & SFOV (n=220) & $80.49 - 134.17$ & $1968 - 8006$ &  
+                \shortstack{$320 \times 320 \times 32$ to \\  $512 \times 512 \times 30$} & 
+                \shortstack{$0.3906 \times 0.3906 \times 3$ to \\ $0.6875 \times 0.6875 \times 3$}\\
+          GE & Sagittal & LFOV (n=25) & $88.32 - 94.70$ & $9000$ & 
+                \shortstack{$512 \times 512 \times 25$ to \\  $512 \times 512 \times 40$} & 
+                $0.429688 \times 0.429688 \times 3$\\
+          GE & Sagittal & SFOV (n=195) & $80.49 - 134.51$ & $2124 - 7917$&  
+                \shortstack{ $256 \times 256 \times 25$ to \\ $512 \times 512 \times 33$} &
+                \shortstack{$0.3906 \times 0.3906 \times 3$ to \\ $0.7813 \times 0.7813 \times 3$}\\
+          Siemens & Axial & SFOV (n=330)  & $101 - 108$ & $4030 - 8624$&  
+                \shortstack{$256  \times 256 \times 17$ to \\ $640 \times 640 \times 23$} & 
+                \shortstack{$0.3906 \times 0.3906 \times 3$ to\\ $0.7813 \times 0.7813 \times 3$} \\
+          Siemens & Coronal & SFOV (n=330) & $97 - 110$ & $3080 - 6620$&  
+                \shortstack{$256  \times 256 \times 19$ to \\ $320 \times 320 \times 23$} & 
+                \shortstack{$0.5625 \times 0.5625 \times 3$ to\\ $0.8001 \times 0.8001 \times 4$} \\
+          Siemens & Sagittal & SFOV (n=330) & $101 - 110$ & $3810 - 6830$&  
+                \shortstack{$320  \times 320 \times 17$ to \\ $448 \times 390 \times 13$} &
+                \shortstack{$0.5625 \times 0.5625 \times 3$ to\\ $0.571 \times 0.571 \times 4$} \\
+         \hline
+    \end{tabular}
+    \label{tab:dataset}
+\end{table} 
+
+\newpage
+\begin{table}[ht]
+    \caption{Dice Similarity Coefficients (DSC) (mean $\pm$ SD) for prostate, segmented with each of the three trained models (GE, Siemens, and Combined). The results are presented for data from GE and Siemens MRI vendors and the DSCs are calculated on the interpolated (0.5 x 0.5 x 0.5 mm) and original MRI resolution.}
     \begin{tabular}{lcc}
          \hline
           \textbf{Prostate Models} & \textbf{GE (Interpolated/Original Resolution)} & \textbf{Siemens (Interpolated/Original Resolution)}\\
@@ -18,16 +51,16 @@
 
 \newpage
 \begin{table}[ht]
-    \caption{Dice Similarity Coefficients (DSC) between manual and CNN-generated PZ contours for GE and Siemens.The trained models are divided in: with (w) data augmentation (DA) and without (wo) DA.}
+     \caption{Dice Similarity Coefficients (DSC) (mean $\pm$ SD) for PZ, segmented with each of the three trained models (GE, Siemens, and Combined). The results are presented for data from GE and Siemens MRI vendors and the DSCs are calculated on the interpolated (0.5 x 0.5 x 0.5 mm) and original MRI resolution.}
     \begin{tabular}{lcc}
          \hline
-          \textbf{PZ Models} & \textbf{GE Dataset} & \textbf{Siemens Dataset}\\
+            \textbf{PZ Models} & \textbf{GE (Interpolated/Original Resolution)} & \textbf{Siemens (Interpolated/Original Resolution)}\\
          \hline
-         GE ROI/Original & $0.767\pm0.093$/$0.759\pm0.089$ & $0.537\pm0.204$/$0.539\pm0.204$ \\
+         GE  & $0.767\pm0.093$/$0.759\pm0.089$ & $0.537\pm0.204$/$0.539\pm0.204$ \\
          \hline
-         Siemens ROI/Original & $0.591\pm0.223$/$0.591\pm0.219$ & $0.808\pm0.085$/$0.808\pm0.087$ \\
+         Siemens  & $0.591\pm0.223$/$0.591\pm0.219$ & $0.808\pm0.085$/$0.808\pm0.087$ \\
          \hline
-         Combined ROI/Original & $\mathbf{0.797\pm0.093}$/$0.788\pm0.093$ & $\mathbf{0.813\pm0.079}$/$0.811\pm0.79$\\
+         Combined & $\mathbf{0.797\pm0.093}$/$0.788\pm0.093$ & $\mathbf{0.813\pm0.079}$/$0.811\pm0.79$\\
          \hline
     \end{tabular}
     \label{tab:res_pz}
@@ -59,13 +92,13 @@
 \begin{figure}[ht]
     \centering
     \includegraphics[totalheight=.4\textheight]{figures/Figure4.eps}
-    \caption{Prostate segmentation for the cases with the lowest, middle, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model.  }
+    \caption{Prostate segmentation for the cases with the lowest, closest to mean, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model.  }
     \label{fig:resseg}
 \end{figure} 
 
 \begin{figure}[ht]
     \centering
     \includegraphics[totalheight=.4\textheight]{figures/Figure5.eps}
-    \caption{Peripheral zone segmentation for the cases with the lowest, middle, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model.  }
+    \caption{Peripheral zone segmentation for the cases with the lowest, closest to mean, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model.  }
     \label{fig:ressegpz}
 \end{figure} 
