@@ -15,16 +15,16 @@
 %\title{ Towards a universal MRI atlas of the prostate and prostate zones. Part II: Deep Learning }
 \title{ Segmentation of prostate and prostate zones using Deep Learning: a multi-MRI vendor analysis}
 % List abbreviations here, if any. Please note that it is preferred that abbreviations be defined at the first instance they appear in the text, rather than creating an abbreviations list.
-\abbrevs{PZ, pheriperal zone; CNN, Convolutional Neural Network; DSC,  Dice coefficient TZ, transition zone; ROI, region of interest; SGD, Stochastic Gradient Descent}
+\abbrevs{PZ, peripheral zone; CNN, Convolutional Neural Network; DSC,  Dice coefficient; TZ, transition zone; ROI, region of interest; SGD, Stochastic Gradient Descent}
 % Include full author names and degrees, when required by the journal.
 % Use the \authfn to add symbols for additional footnotes and present addresses, if any. Usually start with 1 for notes about author contributions; then continuing with 2 etc if any author has a different present address.
 \author[1]{Olmo Zavala-Romero}
-\author[1]{Adrian L. Breto }
+\author[1]{Adrian L. Breto}
+\author[2]{\\Yu-Cherng C. Chang}
 \author[1]{Nicole Gautney}
-\author[2]{Yu-Cherng C. Chang}
-\author[1]{Alan Dal Pra}
+\author[1]{\\Alan Dal Pra}
 \author[1]{Matthew A. Abramowitz}
-\author[1]{Alan Pollack}
+\author[1]{\\Alan Pollack}
 \author[1]{Radka Stoyanova}
 
 \affil[1]{Department of Radiation Oncology, University of Miami Miller School of Medicine,
@@ -32,9 +32,10 @@
 \affil[2]{University of Miami Miller School of Medicine,
                 Miami, FL, 33136, USA}
 
-\corraddress{Olmo Zavala-Romero PhD, 
-            Radiation Oncology, 
-            University of Miami Miller School of Medicine,
+\corraddress{Olmo Zavala-Romero PhD, \\
+            Radiation Oncology, \\
+            University of Miami\\
+            Miller School of Medicine,
             Miami, FL, 33136, USA}
 
 \corremail{osz1@med.miami.edu}
@@ -47,10 +48,11 @@
 \maketitle
 
 \begin{abstract} % 250 words for all manuscript types
-\textbf{Purpose:} Develop a Deep-Learning-based segmentation algorithm for prostate and its peripheral zone (PZ) that is robust across multiple MRI vendors. \\
-\textbf{Methods:} An enhanced 3D U-net neural network is used for automatic segmentation of the prostate and its PZ using the T2-weighted (T2-w) MRI. Prostate and PZ were manually contoured on axial T2-w. The network is a multi-stream convolutional neural network that uses axial, coronal, and sagittal T2-w series as input. The preprocessing of the input data includes image normalization, bias correction, and resampling of the images and ground truth contours. A dataset from two MRI vendors (Siemens and GE) is used to test the proposed network. Six different models were trained, three for the prostate and three for the PZ. One model was trained on  data from each vendor and one model was trained aggregating the two datasets. The Dice coefficient (DSC) is used to compare the performance of the system. \\
-\textbf{Results:} The dataset consisted of 220 GE and 330 Siemens MRIs. DSCs of $0.896 \pm 0.037$ and  $0.830 \pm 0.054$ were achieved for segmenting the prostate in each dataset, respectively. For PZ segmentation, the highest DSCs are $0.813 \pm 0.079$ and $0.797 \pm 0.093$. The leading results are frequently obtained when the network is trained with the combined dataset. \\
-\textbf{Conclusion:} The proposed system has a performance comparable to the inter-expert variability for segmenting the prostate and its PZ. Combining images from different MRI vendors on the training of the network is of paramount importance for building a universal model for prostate and PZ segmentation. 
+\textbf{Purpose:} Develop a Deep-Learning-based segmentation algorithm for prostate and its peripheral zone (PZ) that is reliable across multiple MRI vendors. \\
+\textbf{Methods:} A multi-stream 3D Convolutional Neural Network is used for automatic segmentation of the prostate and its PZ using T2-weighted (T2-w) MRI. Prostate and PZ were manually contoured on axial T2-w. The network uses axial, coronal, and sagittal T2-w series as input. The preprocessing of the input data includes bias correction, resampling, and image normalization. A dataset from two MRI vendors (Siemens and GE) is used to test the proposed network. Six different models were trained, three for the prostate and three for the PZ. Of the three, two were trained on data from each vendor separately, and a third on the aggregate of the datasets. The Dice coefficient (DSC) is used to compare the manual and predicted segmentation. \\
+\textbf{Results:} The dataset consisted of 550 MRIs (Siemens-330, GE-220). 
+For prostate segmentation, the top models obtained DSCs of $0.896 \pm 0.037$ and  $0.830 \pm 0.054$ (mean $\pm$ standard deviation) on Siemens and GE respectively. For PZ, the best DSCs were $0.813 \pm 0.079$ and $0.797 \pm 0.093$. The leading results are frequently obtained when the network is trained with the combined dataset. \\
+\textbf{Conclusion:} The proposed network has a performance comparable to the inter-expert variability for segmenting the prostate and its PZ. Combining images from different MRI vendors on the training of the network is of paramount importance for building a universal model for prostate and PZ segmentation. 
 \keywords{ Prostate, Prostate Zones, Segmentation, MRI, Deep Learning, U-Net}
 \end{abstract}
 % Paper 5000 words, 10 Figures and tables
@@ -66,7 +68,7 @@
 \input{Sections/conclusions.tex}
 
 \section{Acknowledgements}
-The prostate MR imaging for the ProstateX challenge was performed at the Radboud University Medical Centre (Radboudumc) in the Prostate MR Reference Center under supervision of prof. Dr. Barentsz. The Radboudumc is located in Nijmegen, The Netherlands. The dataset was collected and curated for research in computer aided diagnosis of prostate MR under supervision of Dr. Huisman, Radboudumc. We would also like to thank Dr. Anneke Meyer for making their model and source code publicly available.
+Prostate MR imaging for the ProstateX challenge was performed at the Radboud University Medical Centre (Radboudumc) in the Prostate MR Reference Center under supervision of prof. Dr. Barentsz. The Radboudumc is located in Nijmegen, The Netherlands. The dataset was collected and curated for research in computer aided diagnosis of prostate MR under supervision of Dr. Huisman, Radboudumc. We would also like to thank Dr. Anneke Meyer for making their model and source code publicly available.
 
 % Numbered in alphabetical order. Numbers in square brackets
 \bibliography{theref}

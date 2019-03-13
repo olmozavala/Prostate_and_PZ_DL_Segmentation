@@ -1,10 +1,10 @@
 \newpage
 \textbf{Tables}
 \begin{table}[ht]
-    \caption{MRI acquisition parameters. The GE dataset Axial and Sagittal planes were acquired in two modalities: large field of view (LFOV) and small field of view (SFOV). The Siemens dataset, was only acquired in the SFOV modality.}
+    \caption{MRI acquisition parameters. The GE dataset Axial and Sagittal series were acquired in two fields of view (FOV): large field of view (LFOV) and small field of view (SFOV). The Siemens dataset, was only acquired in the SFOV modality.}
     \begin{tabular}{lcccccc}
          \hline
-          \textbf{Magnet} & \textbf{Plane} & \textbf{FOV} & \textbf{ET Min - Max} & \textbf{RT Min - Max} & \textbf{Matrix} & \textbf{Voxel size (mm)} \\
+          \textbf{Magnet} & \textbf{Plane} & \textbf{FOV} & \textbf{TE Min - Max} & \textbf{TR Min - Max} & \textbf{Matrix} & \textbf{Voxel size (mm)} \\
           GE & Axial & LFOV (n=100) & $81.31 - 105.50$ & $4806 - 10998$ & $256 \times 256 \times 72$ & $1.25 \times 1.25 \times 2.5$ \\
           GE & Axial & SFOV (n=120) & $80.88 - 93.48$ & $3700 -7078$ &
                 \shortstack{ $256 \times 256 \times 27$ to\\ $512 \times 512 \times 37$} & 
@@ -29,8 +29,9 @@
                 \shortstack{$0.5625 \times 0.5625 \times 3$ to\\ $0.571 \times 0.571 \times 4$} \\
          \hline
     \end{tabular}
+    Abbreviations: TE=Echo Time, TR=Repetition Time, FOV=Field of View, SFOV=Small Field of View, LFOV=Large Field of View
     \label{tab:dataset}
-\end{table} 
+zr\end{table} 
 
 \newpage
 \begin{table}[ht]
@@ -102,3 +103,10 @@
     \caption{Peripheral zone segmentation for the cases with the lowest, closest to mean, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model.  }
     \label{fig:ressegpz}
 \end{figure} 
+
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[totalheight=.32\textheight]{figures/Figure6.eps}
+    \caption{Estimated amount of memory required to store the parameters of the proposed 3D CNN model at each convolutional layer. The memory size is displayed in gigabytes (GB). }
+    \label{fig:nn_size}
+\end{figure*}
