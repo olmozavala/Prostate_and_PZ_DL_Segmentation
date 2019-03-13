@@ -79,7 +79,7 @@ zr\end{table}
 \begin{figure}[ht]
     \centering
     \includegraphics[totalheight=.21\textheight]{figures/Figure2.eps}
-    \caption{Interpolation of prostate and PZ contours. \textbf{a)} an example of the optical flow obtained between two prostate contours from adjacent horizontal planes. In \textbf{b)} on the left, original contours with 17 slices. On the right, interpolated contours with 68 slices.}
+    \caption{Interpolation of prostate and PZ contours. \textbf{a)} an example of the optical flow obtained between two prostate contours from adjacent horizontal planes. In \textbf{b)} on the left, original PZ contours with 7 slices. On the right, interpolated contours with 40 slices.}
     \label{fig:fig_2}
 \end{figure}
 
@@ -92,21 +92,24 @@ zr\end{table}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[totalheight=.4\textheight]{figures/Figure4.eps}
-    \caption{Prostate segmentation for the cases with the lowest, closest to mean, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model.  }
+    \includegraphics[totalheight=.45\textheight]{figures/Figure4.eps}
+    \caption{Prostate segmentation for the cases with the lowest, closest to mean, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model. Ground
+    truth contours (GT) are in red and predicted  contours  (NN) are in yellow. }
     \label{fig:resseg}
 \end{figure} 
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[totalheight=.4\textheight]{figures/Figure5.eps}
-    \caption{Peripheral zone segmentation for the cases with the lowest, closest to mean, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model.  }
+    \includegraphics[totalheight=.45\textheight]{figures/Figure5.eps}
+    \caption{Peripheral zone segmentation for the cases with the lowest, closest to mean, and highest 3D DSC for the Siemens (up) and GE (down) datasets. These segmentation are obtained with the \emph{Combined} network model. 
+    Ground truth PZ contours (GT) are displayed in red, predicted  contours (NN) in cyan, and prostate contours in yellow.
+    }
     \label{fig:ressegpz}
 \end{figure} 
 
 \begin{figure*}[ht]
     \centering
     \includegraphics[totalheight=.32\textheight]{figures/Figure6.eps}
-    \caption{Estimated amount of memory required to store the parameters of the proposed 3D CNN model at each convolutional layer. The memory size is displayed in gigabytes (GB). }
+    \caption{Estimated amount of memory required to store the parameters of the proposed model at each convolutional layer. The memory size is displayed in gigabytes (GB). }
     \label{fig:nn_size}
 \end{figure*}
