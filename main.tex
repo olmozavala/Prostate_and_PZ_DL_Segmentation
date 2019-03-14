@@ -62,10 +62,14 @@ For prostate segmentation, the top models obtained DSCs of $0.896 \pm 0.037$ and
 %   * Figures should not be embedded within the manuscript text 
 %   * Figures in Tiff format
 %   * Please include all the figure captions, in list format, at the end of your manuscript text file
-\input{Sections/intro.tex}
-\input{Sections/methodology.tex}
-\input{Sections/results.tex}
-\input{Sections/conclusions.tex}
+\input{intro.tex}
+\section{Methods}
+\label{sec:methods}
+\input{dataset.tex}
+\input{preprocessing.tex}
+\input{methodology.tex}
+\input{results.tex}
+\input{conclusions.tex}
 
 \section{Acknowledgements}
 Prostate MR imaging for the ProstateX challenge was performed at the Radboud University Medical Centre (Radboudumc) in the Prostate MR Reference Center under supervision of prof. Dr. Barentsz. The Radboudumc is located in Nijmegen, The Netherlands. The dataset was collected and curated for research in computer aided diagnosis of prostate MR under supervision of Dr. Huisman, Radboudumc. We would also like to thank Dr. Anneke Meyer for making their model and source code publicly available.
@@ -73,7 +77,7 @@ Prostate MR imaging for the ProstateX challenge was performed at the Radboud Uni
 % Numbered in alphabetical order. Numbers in square brackets
 \bibliography{theref}
 
-\input{Sections/tablesAndFigures.tex}
+\input{tablesAndFigures.tex}
 
 % This graphical abstract have a problem with the font
 %\begin{biography}[example-image-1x1]{A.~One}
